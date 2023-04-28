@@ -22,6 +22,7 @@ public class ShareLaneRegistrationTest {
 //        Check Register button
         WebElement registerButton = driver.findElement(By.cssSelector("[value='Register']"));
         Assert.assertTrue(registerButton.isDisplayed(), "Register button isn't displayed");
+        driver.close();
     }
 
     @Test
@@ -40,6 +41,7 @@ public class ShareLaneRegistrationTest {
 //        Check message
         WebElement errorMessage = driver.findElement(By.className("error_message"));
         Assert.assertTrue(errorMessage.isDisplayed(), "Error message isn't displayed");
+        driver.close();
     }
 
     @Test
@@ -58,6 +60,7 @@ public class ShareLaneRegistrationTest {
 //        Check message
         WebElement errorMessage = driver.findElement(By.className("error_message"));
         Assert.assertTrue(errorMessage.isDisplayed(), "Error message isn't displayed");
+        driver.close();
     }
 
 
