@@ -5,15 +5,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ShareLaneRegistrationTest {
-    WebDriver driver;
+public class ShareLaneRegistrationTest extends BaseTest{
 
     @Test
     public void fiveDigitsZipCodeTest() {
-        System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver");
-        driver = new ChromeDriver();
-//        Open register page https://www.sharelane.com/cgi-bin/register.py
-//        driver.get("https://www.sharelane.com/cgi-bin/register.py");
+
         driver.navigate().to("https://www.sharelane.com/cgi-bin/register.py");
 //        Input 5 digits to zip code field
         driver.findElement(By.name("zip_code")).sendKeys("12345");
@@ -22,13 +18,11 @@ public class ShareLaneRegistrationTest {
 //        Check Register button
         WebElement registerButton = driver.findElement(By.cssSelector("[value='Register']"));
         Assert.assertTrue(registerButton.isDisplayed(), "Register button isn't displayed");
-        driver.close();
+
     }
 
     @Test
     public void fourDigitsZipCodeTest() {
-        System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver");
-        driver = new ChromeDriver();
 //        Open register page https://www.sharelane.com/cgi-bin/register.py
         driver.get("https://www.sharelane.com/cgi-bin/register.py");
 //        Input 4 digits to zip code field
@@ -41,13 +35,10 @@ public class ShareLaneRegistrationTest {
 //        Check message
         WebElement errorMessage = driver.findElement(By.className("error_message"));
         Assert.assertTrue(errorMessage.isDisplayed(), "Error message isn't displayed");
-        driver.close();
     }
 
     @Test
     public void sixDigitsZipCodeTest() {
-        System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver");
-        driver = new ChromeDriver();
 //        Open register page https://www.sharelane.com/cgi-bin/register.py
         driver.get("https://www.sharelane.com/cgi-bin/register.py");
 //        Input 6 digits to zip code field
@@ -60,13 +51,11 @@ public class ShareLaneRegistrationTest {
 //        Check message
         WebElement errorMessage = driver.findElement(By.className("error_message"));
         Assert.assertTrue(errorMessage.isDisplayed(), "Error message isn't displayed");
-        driver.close();
+
     }
 
     @Test
     public void registerUserTest() {
-        System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver");
-        driver = new ChromeDriver();
 //        Open register page https://www.sharelane.com/cgi-bin/register.py
         driver.navigate().to("https://www.sharelane.com/cgi-bin/register.py");
 //        Input 5 digits to zip code field
@@ -95,7 +84,6 @@ public class ShareLaneRegistrationTest {
         WebElement confirmationMessage = driver.findElement(By.className("confirmation_message"));
         Assert.assertTrue(confirmationMessage.isDisplayed(), "Confirmation message isn't displayed");
 
-        driver.close();
     }
 
     @Test
@@ -121,7 +109,5 @@ public class ShareLaneRegistrationTest {
 //        Check Logout button
         WebElement logoutButton = driver.findElement(By.cssSelector("[href='./log_out.py']"));
         Assert.assertTrue(logoutButton.isDisplayed(), "Logout button isn't displayed");
-
-        driver.close();
     }
 }
